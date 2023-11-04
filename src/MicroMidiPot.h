@@ -29,7 +29,7 @@ public:
 
 private:
     int pin;
-    ResponsiveAnalogRead pot;
+    ResponsiveAnalogRead *pot;
     int previous_value;
     void send();
     float scale();

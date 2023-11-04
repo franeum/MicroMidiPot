@@ -1,16 +1,16 @@
-#include <Arduino.h>
 #include "MicroMidiPot.h"
 
 void MicroMidiPot::begin(int pin, byte channel, byte controller)
 {
-    pot = ResponsiveAnalogRead analog(pin, true);
+    ResponsiveAnalogRead analog(pin, true);
+    pot = &analog;
 }
 
 void MicroMidiPot::update()
 {
-    pot.update();
+    pot->update();
 
-    if (pot.hasChange)
+    if (pot->hasChanged)
     {
         /*
             1. Prendi il valore (se è cambiato)
@@ -18,6 +18,7 @@ void MicroMidiPot::update()
             3. Scala in MIDI value
             4. Spedisci MIDI
         */
+        int value = pot->getValue();
     }
 }
 
