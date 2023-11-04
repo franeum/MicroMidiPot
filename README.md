@@ -1,5 +1,5 @@
 # micromidipot
-by @francesco_bianchi
+by @franeum
 
 *MIDI over USB potentiometer controller*
 
