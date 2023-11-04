@@ -5,11 +5,13 @@
 #include <ResponsiveAnalogRead.h>
 #include <MIDIUSB.h>
 
+/*
 void controlChange(byte channel, byte control, byte value)
 {
     midiEventPacket_t event = {0x0B, 0xB0 | channel, control, value};
     MidiUSB.sendMIDI(event);
 }
+*/
 
 class MicroMidiPot
 {
@@ -26,13 +28,13 @@ public:
 
     void begin(int pin, byte channel, byte controller);
     void update();
+    int newvalue;
 
 private:
     int pin;
     ResponsiveAnalogRead *pot;
     int previous_value;
     void send();
-    float scale();
 };
 
 #endif

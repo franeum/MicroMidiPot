@@ -10,7 +10,7 @@ void MicroMidiPot::update()
 {
     pot->update();
 
-    if (pot->hasChanged)
+    if (pot->hasChanged())
     {
         /*
             1. Prendi il valore (se è cambiato)
@@ -19,8 +19,8 @@ void MicroMidiPot::update()
             4. Spedisci MIDI
         */
         int value = pot->getValue();
+        newvalue = map(value, 0, 1023, 0, 127);
     }
 }
 
 void MicroMidiPot::send() {}
-void MicroMidiPot::scale() {}
