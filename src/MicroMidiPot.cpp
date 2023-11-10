@@ -1,5 +1,7 @@
 #include "MicroMidiPot.h"
 
+int MicroMidiPot::_debug = 1; // initializing the static int
+
 void MicroMidiPot::begin(int pin, byte channel, byte controller, String identifier)
 {
     _id = identifier;
@@ -21,9 +23,13 @@ void MicroMidiPot::update()
 
         if (previous_value != current_value)
         {
-            Serial.print(_id);
-            Serial.print(" ");
-            Serial.println(current_value);
+            if (_debug)
+            {
+                Serial.print(_id);
+                Serial.print(" ");
+                Serial.println(current_value);
+            }
+
             this->send(current_value);
             previous_value = current_value;
         }
@@ -47,4 +53,9 @@ void MicroMidiPot::controlChange(byte channel, byte n_controller, byte value)
 void MicroMidiPot::send(int value)
 {
     this->controlChange(_channel, _controller, value);
+}
+
+void MicroMidiPot::setDebug(int value)
+{
+    _debug = value;
 }

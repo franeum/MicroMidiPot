@@ -19,11 +19,12 @@ public:
         begin(pin, channel, controller, identifier);
     };
 
+    static void setDebug(int value);
     void begin(int pin, byte channel, byte controller, String identifier = "POT");
     void update();
-    // int newvalue;
 
 private:
+    static int _debug;
     int pin;
     ResponsiveAnalogRead *pot;
     int previous_value;
