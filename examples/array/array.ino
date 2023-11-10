@@ -11,14 +11,10 @@ void setup()
 {
   for (int i = 0; i < 2; i++)
     pot[i] = new MicroMidiPot(PIN_POTS[i], MIDI_CHANNEL, N_CONTROLLERS[i], "POT " + String(i));
-
-  Serial.begin(115200);
 }
 
 void loop()
 {
   for (int i = 0; i < 2; i++)
     pot[i]->update();
-
-  delay(1);
 }

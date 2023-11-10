@@ -16,13 +16,12 @@ void setup()
     */
   pot1.begin(PINPOT1, 0, 50, "POT1");
 
-  // Initialize serial port to read values on serial monitor
-  Serial.begin(115200);
+  // disable serial monitoring if you want
+  // MicroMidiPot::setDebug(0);
 }
 
 void loop()
 {
   // call update() method: it makes all (read value, smooth and send midi)
   pot1.update();
-  delay(1);
 }
