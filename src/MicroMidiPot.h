@@ -5,36 +5,34 @@
 #include <ResponsiveAnalogRead.h>
 #include <MIDIUSB.h>
 
-/*
-void controlChange(byte channel, byte control, byte value)
-{
-    midiEventPacket_t event = {0x0B, 0xB0 | channel, control, value};
-    MidiUSB.sendMIDI(event);
-}
-*/
+#define MIDICTL_MIN 0
+#define MIDICTL_MAX 127
+#define BOUND_MIN 100
+#define BOUND_MAX 900
 
 class MicroMidiPot
 {
 public:
-    // pin - the pin to read
-    // midi channel to send
-    // controller number
-
     MicroMidiPot(){};
-    MicroMidiPot(int pin, byte channel, byte controller)
+    MicroMidiPot(int pin, byte channel, byte controller, String identifier)
     {
-        begin(pin, channel, controller);
+        begin(pin, channel, controller, identifier);
     };
 
-    void begin(int pin, byte channel, byte controller);
+    void begin(int pin, byte channel, byte controller, String identifier = "POT");
     void update();
-    int newvalue;
+    // int newvalue;
 
 private:
     int pin;
     ResponsiveAnalogRead *pot;
     int previous_value;
-    void send();
+    byte _channel;
+    byte _controller;
+    void send(int value);
+    void controlChange(byte channel, byte n_controller, byte value);
+    int parseValue(int v);
+    String _id;
 };
 
 #endif
