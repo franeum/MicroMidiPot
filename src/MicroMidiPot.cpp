@@ -16,13 +16,6 @@ void MicroMidiPot::update()
 
     if (pot->hasChanged())
     {
-        /*
-            1. Prendi il valore (se è cambiato)
-            2. Taglia i bordi (primi n valori e ultimi n valori)
-            3. Scala in MIDI value
-            4. Spedisci MIDI
-        */
-
         int value = pot->getValue();
         int current_value = this->parseValue(value);
 

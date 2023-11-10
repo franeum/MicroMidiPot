@@ -14,7 +14,7 @@ class MicroMidiPot
 {
 public:
     MicroMidiPot(){};
-    MicroMidiPot(int pin, byte channel, byte controller, String identifier)
+    MicroMidiPot(int pin, byte channel, byte controller, String identifier = "POT")
     {
         begin(pin, channel, controller, identifier);
     };
