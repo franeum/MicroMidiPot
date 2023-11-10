@@ -1,6 +1,6 @@
 #include "MicroMidiPot.h"
 
-int MicroMidiPot::_debug = 1; // initializing the static int
+int MicroMidiPot::_debug = 1;
 
 void MicroMidiPot::begin(int pin, byte channel, byte controller, String identifier)
 {
@@ -14,8 +14,6 @@ void MicroMidiPot::update()
 {
     pot->update();
 
-    // Serial.println(pot->getRawValue());
-
     if (pot->hasChanged())
     {
         int value = pot->getValue();
@@ -23,6 +21,7 @@ void MicroMidiPot::update()
 
         if (previous_value != current_value)
         {
+
             if (_debug)
             {
                 Serial.print(_id);
