@@ -1,9 +1,8 @@
 // include the ResponsiveAnalogRead library
 #include <MicroMidiPot.h>
 
-// define the pin you want to use
-const int PINPOT1 = A0;
-const int PINPOT2 = A1;
+#define PINPOT1 A0;
+#define PINPOT2 A1;
 
 MicroMidiPot pot1, pot2;
 
@@ -17,7 +16,6 @@ void setup()
 
 void loop()
 {
-  // update the ResponsiveAnalogRead object every loop
   pot1.update();
   pot2.update();
   delay(1);
