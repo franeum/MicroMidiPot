@@ -3,10 +3,10 @@
 #######################################
 
 #######################################
-# Datatypes (KEYWORD1)
+# Datatypes	(KEYWORD1)
 #######################################
 
-MicroMidiPot    KEYWORD1
+MicroMidiPot	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -14,3 +14,4 @@ MicroMidiPot    KEYWORD1
 
 update	KEYWORD2
 begin	KEYWORD2
+set_debug	KEYWORD2
