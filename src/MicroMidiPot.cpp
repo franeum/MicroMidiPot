@@ -42,13 +42,6 @@ int MicroMidiPot::parseValue(int v)
     return parsed;
 }
 
-void MicroMidiPot::controlChange(byte channel, byte n_controller, byte value)
-{
-    midiEventPacket_t event = {0x0B, 0xB0 | channel, n_controller, value};
-    MidiUSB.sendMIDI(event);
-    MidiUSB.flush();
-}
-
 void MicroMidiPot::send(int value)
 {
     control_change(_channel, _controller, value);
