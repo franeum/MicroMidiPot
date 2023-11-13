@@ -51,10 +51,10 @@ void MicroMidiPot::controlChange(byte channel, byte n_controller, byte value)
 
 void MicroMidiPot::send(int value)
 {
-    controlChange(_channel, _controller, value);
+    control_change(_channel, _controller, value);
 }
 
-void MicroMidiPot::setDebug(int value)
+void MicroMidiPot::set_debug(byte value)
 {
     _debug = value;
 }

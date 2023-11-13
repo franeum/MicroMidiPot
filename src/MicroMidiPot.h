@@ -19,7 +19,7 @@ public:
         begin(pin, channel, controller, identifier);
     };
 
-    static void setDebug(int value);
+    static void set_debug(byte value);
     void begin(int pin, byte channel, byte controller, String identifier = "POT");
     void update();
 
