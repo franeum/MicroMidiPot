@@ -7,8 +7,8 @@ MicroMidiPot pot1, pot2;
 
 void setup()
 {
-  pot1.begin(PINPOT1, 0, 50, "POT1");
-  pot2.begin(PINPOT2, 0, 100, "POT2");
+  pot1.begin(PINPOT1, 1, 50, "POT1");
+  pot2.begin(PINPOT2, 1, 100, "POT2");
 }
 
 void loop()

@@ -1,6 +1,6 @@
 #include <MicroMidiPot.h>
 
-#define MIDI_CHANNEL 0
+#define MIDI_CHANNEL 1
 #define NUMBER 3
 
 const int PIN_POTS[] = {A0, A1, A2};
