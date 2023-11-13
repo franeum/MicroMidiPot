@@ -51,7 +51,7 @@ void MicroMidiPot::controlChange(byte channel, byte n_controller, byte value)
 
 void MicroMidiPot::send(int value)
 {
-    this->controlChange(_channel, _controller, value);
+    controlChange(_channel, _controller, value);
 }
 
 void MicroMidiPot::setDebug(int value)

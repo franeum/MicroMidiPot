@@ -31,7 +31,6 @@ private:
     byte _channel;
     byte _controller;
     void send(int value);
-    // void controlChange(byte channel, byte n_controller, byte value);
     int parseValue(int v);
     String _id;
 };
