@@ -3,7 +3,7 @@
 
 #include <Arduino.h>
 #include <ResponsiveAnalogRead.h>
-#include <MIDIUSB.h>
+#include <MicroMidiUtils.h>
 
 #define MIDICTL_MIN 0
 #define MIDICTL_MAX 127
@@ -31,7 +31,7 @@ private:
     byte _channel;
     byte _controller;
     void send(int value);
-    void controlChange(byte channel, byte n_controller, byte value);
+    // void controlChange(byte channel, byte n_controller, byte value);
     int parseValue(int v);
     String _id;
 };

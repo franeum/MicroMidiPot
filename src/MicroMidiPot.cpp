@@ -5,7 +5,7 @@ int MicroMidiPot::_debug = 1;
 void MicroMidiPot::begin(int pin, byte channel, byte controller, String identifier)
 {
     _id = identifier;
-    _channel = channel;
+    _channel = check_channel(channel);
     _controller = controller;
     pot = new ResponsiveAnalogRead(pin, true);
 }
