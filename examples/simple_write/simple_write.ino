@@ -17,7 +17,7 @@ void setup()
   pot1.begin(PINPOT1, 1, 50, "POT1");
 
   // disable serial monitoring if you want
-  // MicroMidiPot::setDebug(0);
+  // MicroMidiPot::set_debug(0);
 }
 
 void loop()
