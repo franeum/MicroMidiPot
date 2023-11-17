@@ -6,14 +6,14 @@ void MicroMidiPot::begin(int pin, byte channel, byte controller, String identifi
 {
     _channel = check_channel(channel);
     _controller = controller;
-	
-	if (_debug)
+
+    if (_debug)
     {
         _id = "[" + identifier + "] " + "(channel: " +
               String(_channel + 1) + ", n_controller: " +
               String(_controller) + ")";
     }
-    
+
     pot = new ResponsiveAnalogRead(pin, true);
 }
 
@@ -26,14 +26,17 @@ void MicroMidiPot::update()
         int value = pot->getValue();
         int current_value = this->parseValue(value);
 
+        if (reverse)
+            current_value = map(current_value, MIDICTL_MIN, MIDICTL_MAX, MIDICTL_MAX, MIDICTL_MIN);
+
         if (previous_value != current_value)
         {
             if (_debug)
-			{
-				Serial.print(_id);
-				Serial.print("\tvalue: ");
-				Serial.println(current_value);
-			}
+            {
+                Serial.print(_id);
+                Serial.print("\tvalue: ");
+                Serial.println(current_value);
+            }
 
             this->send(current_value);
             previous_value = current_value;
