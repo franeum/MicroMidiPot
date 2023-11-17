@@ -16,6 +16,9 @@ void setup()
     */
   pot1.begin(PINPOT1, 1, 50, "POT1");
 
+  // reverse direction
+  // pot1.set_reverse();
+
   // disable serial monitoring if you want
   // MicroMidiPot::set_debug(0);
 }
