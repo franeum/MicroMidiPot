@@ -1,8 +1,30 @@
 # micromidipot
-by @franeum
+by [francesco bianchi](https://wwwfrancescobianchi.cloud)
 
-*MIDI over USB potentiometer controller*
+Arduino Library to use a potentiometer as MIDI controller (via USB). It currently run only on ATmega32U4 (Micro and Leonardo).
 
-MIDI over USB potentiometer controller for ATmega32u4 (Arduino micro and Arduino Leonardo). It's a simple library for (not so programming lovers) musicians, to manage potentiometers and send midi messages over USB.
+Tha API is based on ICU paradigm: Instatiate-Configure-Update and you can use a potentiometer with only 3 lines of code:
+
+```c++
+#include <MicroMidiEnc.h>
+
+// Instantiate
+MicroMidiPot pot;
+
+void setup() {
+    // Configure (pin1, MIDI_CHANNEL (1-16), MIDI_CONTROLLER, LABEL_FOR_DEBUG)
+    pot.begin(A0, 1, 70, "POT1");
+}
+
+void loop() {
+    // Update
+    pot.update();
+
+    // ...all done!
+}
+```
+
+Credits:
+- Damien Clarke, [ResponsiveAnalogRead Library](https://github.com/dxinteractive/ResponsiveAnalogRead)
 
 
